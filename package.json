@@ -1,0 +1,20 @@
+{
+  "name": "backend-books",
+  "version": "1.0.0",
+  "description": "Backend para el proyecto del Bookstore",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Daniel D'luyz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.4",
+    "express": "^4.14.0",
+    "newman": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
