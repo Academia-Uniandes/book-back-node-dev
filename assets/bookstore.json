@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "1510dfa5-7763-489c-9481-95bd49d5269e",
+		"name": "Bookstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Test traer libros",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9013d52c-c9ac-4eb6-a1ef-6b90d87ad2b0",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Books count\"] = data.length > 0;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/books/allBooks",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"books",
+								"allBooks"
+							]
+						},
+						"description": "Obtiene todos los libros del Bookstore"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener un libro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8cf8ad92-189f-40e1-ae3f-c68a65f67101",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Book's id\"] = data.id == 100;",
+									"tests[\"Book's name\"] = data.name == \"The Lord of the Rings\";",
+									"tests[\"Book's authors\"] = data.authors.length == 1;",
+									"tests[\"Book's editorial\"] = data.editorial.id == 100;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/books/getBook/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"books",
+								"getBook",
+								"100"
+							]
+						},
+						"description": "Obtiene un libro de acuerdo con su id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Editorials",
+			"item": [
+				{
+					"name": "Obtener todas las editoriales",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "45e3f2ae-326d-47ef-9c61-d5d628b94d61",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Editorial's count\"] = data.length == 2;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/editorials/allEditorials",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"editorials",
+								"allEditorials"
+							]
+						},
+						"description": "Obtiene todas las editoriales del Bookstore"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener una editorial",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "84cc5dcd-0120-4e91-9a3f-4aa68a1566e9",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Editorial's id\"] = data.id == 100;",
+									"tests[\"Editorial's name\"] = data.name == \"Oveja Negra\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/editorials/getEditorial/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"editorials",
+								"getEditorial",
+								"100"
+							]
+						},
+						"description": "Obtiene una editorial por su id"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener los libros de una editorial",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f9e2f048-ea00-4355-8c17-205d94952051",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Books count\"] = data.length == 3;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/editorials/getBooks/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"editorials",
+								"getBooks",
+								"100"
+							]
+						},
+						"description": "Obtiene los libros de una editorial de acuerdo con su id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Obtener autores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c404221-6002-4958-b214-f4b1e0559fd1",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Author's count\"] = data.length == 4;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/authors/allAuthors",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"authors",
+								"allAuthors"
+							]
+						},
+						"description": "Obtiene todos los autores del Bookstore"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener un autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d725339a-29d1-45b1-84b4-538738f16b52",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Author's id\"] = data.id == 100;",
+									"tests[\"Author's name\"] = data.name == \"J.K. Rowling\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/authors/getAuthor/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"authors",
+								"getAuthor",
+								"100"
+							]
+						},
+						"description": "Obtiene los datos de un autor por su id"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener los libros de un autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "74cc9ade-f77f-4ec3-bab7-3ccbf2a82907",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Books count\"] = data.length == 2;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/authors/getBooks/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"authors",
+								"getBooks",
+								"100"
+							]
+						},
+						"description": "Obtiene los libros de un autor de acuerdo con su id"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
