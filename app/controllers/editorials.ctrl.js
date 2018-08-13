@@ -11,4 +11,22 @@ router.get('/editorials/allEditorials', (req, res) => {
     });
 });
 
+router.get('/editorials/getEditorial/:editorialId', (req, res) => {
+    var editorialId = req.params.editorialId;
+
+    editorialsService.getEditorialById(editorialId, function(editorial){
+        res.statusCode = 200;
+        res.send(editorial);
+    });
+});
+
+router.get('/editorials/getBooks/:editorialId', (req, res) => {
+    var editorialId = req.params.editorialId;
+
+    editorialsService.getBooks(editorialId, function(books){
+        res.statusCode = 200;
+        res.send(books);
+    });
+});
+
 module.exports = router;
