@@ -76,3 +76,21 @@ module.exports.getBookEditorial = function(bookId, success, error){
         }
     });
 }
+
+/**
+ * Retrieves the reviews of a book
+ * @param {*} bookId The book's id
+ * @param {*} success The function which handles a success request
+ * @param {*} error The function which handles the errors
+ */
+module.exports.getReviews = function(bookId, success, error){
+    var query = 'SELECT review.* FROM review WHERE book_id = ?';
+
+    db.connection.query(query, [bookId], function (err, rows) {
+        if (!err) {
+            success(rows);
+        } else {
+            error(err);
+        }
+    });
+}

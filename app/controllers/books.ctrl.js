@@ -34,4 +34,21 @@ router.get('/books/getBook/:bookId', function(req, res){
     });
 });
 
+router.get('/books/getReviews/:bookId', function(req, res){
+    var bookId = req.params.bookId;
+    
+    booksService.getReviews(bookId, function(reviews){
+        booksService.getBookById(bookId, function(book){
+            for (let index = 0; index < reviews.length; index++) {
+                const review = reviews[index];
+                review.book = book.name;
+                if(index == reviews.length - 1) {
+                    res.statusCode = 200;
+                    res.send(reviews);
+                }
+            }  
+        });
+    });
+});
+
 module.exports = router;
