@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 var editorialsService = require('../services/editorials.srv.js');
 
-router.get('/editorials/allEditorials', (req, res) => {
+router.get('/editorial', (req, res) => {
     editorialsService.getAllEditorials(function(editorials){
         res.statusCode = 200;
         res.send(editorials);
