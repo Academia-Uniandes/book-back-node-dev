@@ -29,4 +29,13 @@ router.get('/authors/getBooks/:authorId', function(req, res){
     });
 });
 
+router.post('/authors/create', (req, res) => {
+    var author = req.body;
+
+    authorsService.create(author, function (){
+        res.statusCode = 200;
+        res.end();
+    });
+});
+
 module.exports = router;

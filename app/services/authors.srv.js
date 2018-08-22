@@ -57,3 +57,20 @@ module.exports.getBooks = function (authorId, success, error) {
         }
     });
 }
+
+/**
+ * Creates a new author
+ * @param {*} author The author to be created
+ */
+module.exports.create = function (author, success, error) {
+    let birthdate = author.birthdate.year + '-' + author.birthdate.month + '-' + author.birthdate.day;
+    var query = 'INSERT INTO author (name, birthdate, description, image) VALUES (?, ?, ?, ?)';
+    
+    db.connection.query(query, [author.name, birthdate, author.description, author.image], function (err, result) {
+        if (!err) {
+            success();
+        } else {
+
+        }
+    });
+}

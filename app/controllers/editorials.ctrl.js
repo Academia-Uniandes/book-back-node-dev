@@ -38,4 +38,12 @@ router.get('/editorials/getBooks/:editorialId', (req, res) => {
     });
 });
 
+router.post('/editorials/create', (req, res) => {
+    var editorial = req.body;
+    editorialsService.create(editorial, function (){
+        res.statusCode = 200;
+        res.end();
+    });
+});
+
 module.exports = router;

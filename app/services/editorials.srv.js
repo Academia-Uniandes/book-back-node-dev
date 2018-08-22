@@ -54,3 +54,19 @@ module.exports.getBooks = function (editorialId, success, error) {
         }
     });
 }
+
+/**
+ * Creates a new editorial
+ * @param {*} editorial The editorial to be created
+ */
+module.exports.create = function (editorial, success, error) {
+    var query = 'INSERT INTO editorial (name) VALUES (?)';
+    
+    db.connection.query(query, [editorial.name], function (err, result) {
+        if (!err) {
+            success();
+        } else {
+
+        }
+    });
+}
