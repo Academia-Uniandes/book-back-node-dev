@@ -15,8 +15,6 @@ const port = 8000;
 app.options('*', cors());
 app.use(cors());
 
-// require('./app/routes')(app, {});
-
 app.use('/bookstore/api', [authorsController, booksController, editorialsController]);
 
 app.use('/bookstore/api/*', function (req, res, next) {
