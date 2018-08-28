@@ -8,6 +8,9 @@ router.get('/books', (req, res) => {
     booksService.getAllBooks(function (books){
         res.statusCode = 200;
         res.send(books);
+    }, function (err){
+        res.statusCode = 500;
+        res.send(err);
     });
 });
 

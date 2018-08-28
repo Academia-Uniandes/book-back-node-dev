@@ -8,6 +8,9 @@ router.get('/authors', function(req, res){
     authorsService.getAllAuthors(function(authors){
         res.statusCode = 200;
         res.send(authors);
+    }, function (err){
+        res.statusCode = 500;
+        res.send(err);
     });
 });
 
