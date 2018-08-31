@@ -4,22 +4,17 @@ var express = require('express');
 var router = express.Router();
 var booksService = require('../services/books.srv.js');
 
-router.get('/books/allBooks', (req, res) => {
+router.get('/books', (req, res) => {
     booksService.getAllBooks(function (books){
-        for (let index = 0; index < books.length; index++) {
-            const book = books[index];
-            booksService.getBookAuthors(book.id, function(authors){
-                book.authors = authors;
-                if (index == books.length - 1) {
-                    res.statusCode = 200;
-                    res.send(books);
-                }
-            })
-        }
+        res.statusCode = 200;
+        res.send(books);
+    }, function (err){
+        res.statusCode = 500;
+        res.send(err);
     });
 });
 
-router.get('/books/getBook/:bookId', function(req, res){
+router.get('/books/:bookId', function(req, res){
     var bookId = req.params.bookId;
     
     booksService.getBookById(bookId, function(book){
@@ -29,8 +24,17 @@ router.get('/books/getBook/:bookId', function(req, res){
                 book.editorial = editorial;
                 res.statusCode = 200;
                 res.send(book);  
+            }, function (err){
+                res.statusCode = 500;
+                res.send(err);
             })
+        }, function (err){
+            res.statusCode = 500;
+            res.send(err);
         });
+    }, function (err){
+        res.statusCode = 500;
+        res.send(err);
     });
 });
 
