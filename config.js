@@ -1,4 +1,3 @@
-var fs = require('fs');
 var nconf = require('nconf');
 
 nconf.argv()

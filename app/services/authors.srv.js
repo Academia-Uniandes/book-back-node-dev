@@ -1,6 +1,7 @@
 'use strict';
 
 var db = require('../../db.js');
+const logger = require('../../logger');
 
 /**
  * Retrieves all the authors in the Bookstore
@@ -12,9 +13,11 @@ module.exports.getAllAuthors = function (success, error) {
     
     db.connection.query(query, [], function (err, rows) {
         if (!err) {
+            logger.info('The list of authors was retrieved and sent to the controller');
             success(rows);
         } else {
-            error(err);
+            logger.error('The list of authors could not be retrieved');
+            error({ errorMessage: 'Try again later. There seems to be an error because we couldn\'t find the list of authors.' });
         }
     });
 }
@@ -30,9 +33,11 @@ module.exports.getAuthorById = function (authorId, success, error) {
     
     db.connection.query(query, [authorId], function (err, rows) {
         if (!err) {
+            logger.info('The details of the author whose id is ' + authorId + ' were retrieved and sent to the controller');
             success(rows[0]);
         } else {
-            error(err);
+            logger.error('The details of the author whose id is ' + authorId + ' could not be retrieved');
+            error({ errorMessage: 'Try again later. There seems to be an error because we couldn\'t find the details of this author.' });
         }
     });
 }
@@ -51,9 +56,11 @@ module.exports.getBooks = function (authorId, success, error) {
     
     db.connection.query(query, [authorId], function (err, rows) {
         if (!err) {
+            logger.info('The books of the author whose id is ' + authorId + ' were retrieved and sent to the controller');
             success(rows);
         } else {
-            error(err);
+            logger.error('The books of the author whose id is ' + authorId + ' could not be retrieved');
+            error({ errorMessage: 'Try again later. There seems to be an error because we couldn\'t find the books written by this author.' });
         }
     });
 }
