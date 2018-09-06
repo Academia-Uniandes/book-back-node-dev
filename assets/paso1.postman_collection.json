@@ -27,7 +27,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "localhost:8000/bookstore/api/books/allBooks",
+					"raw": "localhost:8000/bookstore/api/books",
 					"host": [
 						"localhost"
 					],
@@ -35,8 +35,7 @@
 					"path": [
 						"bookstore",
 						"api",
-						"books",
-						"allBooks"
+						"books"
 					]
 				},
 				"description": "ok,okmjimju\n"
