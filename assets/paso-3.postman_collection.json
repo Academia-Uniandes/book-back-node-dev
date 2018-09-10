@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "1510dfa5-7763-489c-9481-95bd49d5269e",
+		"name": "Bookstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Test traer libros",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79f38cda-cef3-45a8-8a39-1a83dc87331c",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Books count\"] = data.length > 0;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/books",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"books"
+							]
+						},
+						"description": "Obtiene todos los libros del Bookstore"
+					},
+					"response": [
+						{
+							"name": "Test traer libros",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "localhost:8000/bookstore/api/books/allBooks",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"bookstore",
+										"api",
+										"books",
+										"allBooks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"name": "Access-Control-Allow-Origin",
+									"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"name": "Connection",
+									"description": "Options that are desired for the connection"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3789",
+									"name": "Content-Length",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"name": "Content-Type",
+									"description": "The mime type of this content"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 13 Aug 2018 03:03:17 GMT",
+									"name": "Date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ecd-LORteSfp3QZwsjL7Kgik0bse6Cc\"",
+									"name": "ETag",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"name": "X-Powered-By",
+									"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+								}
+							],
+							"cookie": [],
+							"body": "[{\"id\":100,\"description\":\"Supplement R Tympanic Membrane with Synth Sub, Via Opening\",\"image\":\"https://images-na.ssl-images-amazon.com/images/I/516GyHY9p6L.jpg\",\"isbn\":\"930330149-8\",\"name\":\"The Lord of the Rings\",\"publish_date\":\"1996-08-20T05:00:00.000Z\",\"editorial_id\":100,\"authors\":[{\"id\":200,\"birthdate\":\"1892-03-01T05:00:00.000Z\",\"description\":\"Joanne  Rowling, OBE, FRSL, pen names J. K. Rowling and Robert Galbraith, is a British novelist, screenwriter and film producer best known as the author of the Harry Potter fantasy series.\",\"name\":\"J. R. R. Tolkien\",\"image\":\"http://www.biografiasyvidas.com/biografia/t/fotos/tolkien.jpg\"}]},{\"id\":200,\"description\":\"Occlusion of Right Femoral Artery, Percutaneous Approach\",\"image\":\"http://m.cdn.blog.hu/ko/kockagyar/image/harry_potter_poster/harry_potter_1.jpg\",\"isbn\":\"507119915-7\",\"name\":\"Harry Potter and the Sorcerer´s Stone\",\"publish_date\":\"2014-02-19T05:00:00.000Z\",\"editorial_id\":100,\"authors\":[{\"id\":100,\"birthdate\":\"1965-07-04T05:00:00.000Z\",\"description\":\"Joanne  Rowling, OBE, FRSL, pen names J. K. Rowling and Robert Galbraith, is a British novelist, screenwriter and film producer best known as the author of the Harry Potter fantasy series.\",\"name\":\"J.K. Rowling\",\"image\":\"http://cdn1us.denofgeek.com/sites/denofgeekus/files/2016/11/rowling.jpg\"}]},{\"id\":300,\"description\":\"Removal of Spacer from T-lum Jt, Perc Approach\",\"image\":\"http://t1.gstatic.com/images?q=tbn:ANd9GcQEV8WgR73kXg3mpoFrUiOHaX9eUxe5K7Z4sN-u-ORABH8nwIm4\",\"isbn\":\"279453624-9\",\"name\":\"A Game of Thrones\",\"publish_date\":\"1998-07-04T05:00:00.000Z\",\"editorial_id\":100,\"authors\":[{\"id\":300,\"birthdate\":\"1948-09-20T05:00:00.000Z\",\"description\":\"asA smkcxm slklkc n names J. K. Rowling and Robert Galbraith, is a British novelist\",\"name\":\"George R. R. Martin\",\"image\":\"http://static1.businessinsider.com/image/54d3c832eab8eabe028b4569-960/george-rr-martin-2011.jpg\"}]},{\"id\":400,\"description\":\"Reposition Left Femoral Shaft, Perc Endo Approach\",\"image\":\"http://www.darkmediaonline.com/wp-content/uploads/2013/01/WindsofWinter.jpg\",\"isbn\":\"744706866-7\",\"name\":\"The Winds of Winter\",\"publish_date\":\"1998-10-10T05:00:00.000Z\",\"editorial_id\":200,\"authors\":[{\"id\":300,\"birthdate\":\"1948-09-20T05:00:00.000Z\",\"description\":\"asA smkcxm slklkc n names J. K. Rowling and Robert Galbraith, is a British novelist\",\"name\":\"George R. R. Martin\",\"image\":\"http://static1.businessinsider.com/image/54d3c832eab8eabe028b4569-960/george-rr-martin-2011.jpg\"}]},{\"id\":500,\"description\":\"Supplement Lower Artery with Autol Sub, Perc Approach\",\"image\":\"http://www.patrickrothfuss.com/images/page/cover-slow-regard_277.jpg\",\"isbn\":\"260760424-9\",\"name\":\"The Slow Regard of Silent Things\",\"publish_date\":\"2013-09-05T05:00:00.000Z\",\"editorial_id\":200,\"authors\":[{\"id\":400,\"birthdate\":\"1973-06-06T05:00:00.000Z\",\"description\":\"Joanne  Rowling, OBE, FRSL, pen names J. K. Rowling and Robert Galbraith, is a British novelist, screenwriter and film producer best known as the author of the Harry Potter fantasy series.\",\"name\":\"Patrick Rothfuss\",\"image\":\"http://librista.es/blog/wp-content/uploads/2014/05/patrick-rothfuss.jpg/5x10\"}]},{\"id\":600,\"description\":\"disse accumsan tortor quis turp Perc Approach\",\"image\":\"https://katemacdonalddotnet.files.wordpress.com/2015/11/potter-1-4.jpg\",\"isbn\":\"260760424-9\",\"name\":\"Harry Potter and the Philosopher´s Stone\",\"publish_date\":\"2013-09-05T05:00:00.000Z\",\"editorial_id\":200,\"authors\":[{\"id\":100,\"birthdate\":\"1965-07-04T05:00:00.000Z\",\"description\":\"Joanne  Rowling, OBE, FRSL, pen names J. K. Rowling and Robert Galbraith, is a British novelist, screenwriter and film producer best known as the author of the Harry Potter fantasy series.\",\"name\":\"J.K. Rowling\",\"image\":\"http://cdn1us.denofgeek.com/sites/denofgeekus/files/2016/11/rowling.jpg\"}]}]"
+						}
+					]
+				},
+				{
+					"name": "Obtener un libro",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "20f9f87a-4c0a-4e4f-8b58-cd05286565fe",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Book's id\"] = data.id == 100;",
+									"tests[\"Book's name\"] = data.name == \"The Cuckoo's calling\";",
+									"tests[\"Book's authors\"] = data.authors.length == 1;",
+									"tests[\"Book's editorial\"] = data.editorial.id == 100;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/books/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"books",
+								"100"
+							]
+						},
+						"description": "Obtiene un libro de acuerdo con su id"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener las críticas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac79439d-f56a-48d6-8370-a67498617801",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Reviews's count\"] = data.length == 4;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/books/100/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"books",
+								"100",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Editorials",
+			"item": [
+				{
+					"name": "Obtener todas las editoriales",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7cd93d9d-02fe-47a4-8d8a-4c087156abf0",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Editorial's count\"] = data.length == 5;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/editorials",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"editorials"
+							]
+						},
+						"description": "Obtiene todas las editoriales del Bookstore"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener una editorial",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "99b18930-4d97-467e-ad22-c9c7407458a3",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Editorial's id\"] = data.id == 100;",
+									"tests[\"Editorial's name\"] = data.name == \"Sphere\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/editorials/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"editorials",
+								"100"
+							]
+						},
+						"description": "Obtiene una editorial por su id"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener los libros de una editorial",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cada1471-6146-4c6d-a516-e29a1f018bbc",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Books count\"] = data.length == 4;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/editorials/100/books",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"editorials",
+								"100",
+								"books"
+							]
+						},
+						"description": "Obtiene los libros de una editorial de acuerdo con su id"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Obtener autores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a36d4abe-1024-499c-933d-2c5488fd04b9",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Author's count\"] = data.length == 3;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/authors",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"authors"
+							]
+						},
+						"description": "Obtiene todos los autores del Bookstore"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener un autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d725339a-29d1-45b1-84b4-538738f16b52",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Author's id\"] = data.id == 100;",
+									"tests[\"Author's name\"] = data.name == \"J.K. Rowling\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/authors/100",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"authors",
+								"100"
+							]
+						},
+						"description": "Obtiene los datos de un autor por su id"
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener los libros de un autor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3b3eceb-baff-4b37-954a-00714ed97ff9",
+								"type": "text/javascript",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"tests[\"Status code is 200\"] = responseCode.code == 200;",
+									"tests[\"Books count\"] = data.length == 6;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/bookstore/api/authors/100/books",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bookstore",
+								"api",
+								"authors",
+								"100",
+								"books"
+							]
+						},
+						"description": "Obtiene los libros de un autor de acuerdo con su id"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
