@@ -8,5 +8,12 @@
         "password": "admin",
         "database" : "bookstore",
         "timeoutBeforeReconnection" : "10000"
+    },
+    "test" : {
+        "host": "127.0.0.1",
+        "user": "root",
+        "password": "admin",
+        "database" : "bookstore_test",
+        "timeoutBeforeReconnection" : "10000"
     }
 }

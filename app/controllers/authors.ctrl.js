@@ -24,6 +24,28 @@ router.get('/authors/:authorId', function (req, res) {
     });
 });
 
+router.put('/authors', function (req, res) {
+    var author = req.body;
+
+    authorsService.updateAuthor(author, function () {
+        res.statusCode = 200;
+        res.send(true);
+    }, function (err) {
+        sendServiceError(err, res);
+    });
+});
+
+router.post('/authors', function (req, res) {
+    var author = req.body;
+
+    authorsService.createAuthor(author, function () {
+        res.statusCode = 200;
+        res.send(true);
+    }, function (err) {
+        sendServiceError(err, res);
+    });
+});
+
 router.get('/authors/:authorId/books', function (req, res) {
     var authorId = req.params.authorId;
 
@@ -36,7 +58,7 @@ router.get('/authors/:authorId/books', function (req, res) {
 });
 
 function sendServiceError(err, res) {
-    res.statusCode = 500;
+    res.statusCode = err.errorCode;
     res.send(err);
 }
 

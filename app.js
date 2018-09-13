@@ -18,29 +18,28 @@ const port = conf.get('server').port;
 app.options('*', cors());
 app.use(cors());
 
+app.use(bodyParser.json());
+
 app.use('/bookstore/api', [authorsController, booksController, editorialsController]);
 
 app.use('/bookstore/api/*', function (req, res, next) {
     next();
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
 function connectToDatabase() {
     var connection = db.connection;
-    
+
     connection.connect(function (err) {                 
         if (err) {                                   
             console.log('Error when connecting to db:', err.code);
-            setTimeout(handleDisconnect, dbParams.timeoutBeforeReconnection);   
+            setTimeout(connectToDatabase, conf.get('db').timeoutBeforeReconnection);   
         } else {
             console.log('Connected to the db !');
         }                                           
     });                                             
     connection.on('error', function (err) {
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-            handleDisconnect();                       
+            connectToDatabase();                       
         } else {
             throw err;
         }
